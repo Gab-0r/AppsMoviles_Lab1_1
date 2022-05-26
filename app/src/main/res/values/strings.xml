@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AppsMoviles_Lab1_1</string>
+    <string name="string_nombre">Nombre</string>
+    <string name="string_email">Correo electrónico</string>
+    <string name="string_contrasena">Contraseña</string>
+    <string name="string_confirmarpass">Confirmar contraseña</string>
+    <string name="string_tituloformulario">Formulario de registro</string>
 </resources>
