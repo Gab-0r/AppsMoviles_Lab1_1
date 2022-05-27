@@ -5,4 +5,13 @@
     <string name="string_contrasena">Contraseña</string>
     <string name="string_confirmarpass">Confirmar contraseña</string>
     <string name="string_tituloformulario">Formulario de registro</string>
+    <string name="string_femenino">Femenino</string>
+    <string name="string_masculino">Masculino</string>
+    <string name="string_genero">Genero</string>
+    <string name="string_hobbies">Hobbies</string>
+    <string name="string_ejercicio">Ejercicio</string>
+    <string name="string_leer">Leer</string>
+    <string name="string_senderismo">Senderismo</string>
+    <string name="string_eventos">Eventos culturales</string>
+    <string name="string_fnacimiento">Fecha de nacimiento</string>
 </resources>

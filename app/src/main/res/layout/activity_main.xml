@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     tools:context=".MainActivity">
 
     <TextView
@@ -94,6 +95,115 @@
             android:layout_height="wrap_content"
             android:hint="@string/string_confirmarpass"
             android:inputType="textPassword" />
+
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView_genero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="294dp"
+        android:text="@string/string_genero"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_confirmPass" />
+
+    <RadioGroup
+        android:id="@+id/RadioGroup_genero"
+        android:layout_width="264dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_genero">
+
+        <RadioButton
+            android:id="@+id/radioButton_femenino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/string_femenino"
+            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+        <RadioButton
+            android:id="@+id/radioButton_masculino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/string_masculino"
+            tools:ignore="TouchTargetSizeCheck" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView_hobbies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="282dp"
+        android:text="@string/string_hobbies"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RadioGroup_genero" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="281dp"
+        android:layout_height="194dp"
+        android:layout_marginStart="121dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="272dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.203"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_hobbies">
+
+        <CheckBox
+            android:id="@+id/checkBox_ejercicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/string_ejercicio" />
+
+        <CheckBox
+            android:id="@+id/checkBox_leer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/string_leer" />
+
+        <CheckBox
+            android:id="@+id/checkBox_senderismo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/string_senderismo" />
+
+        <CheckBox
+            android:id="@+id/checkBox_eventos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/string_eventos" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView_fnacimiento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="304dp"
+        android:text="@string/string_fnacimiento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
