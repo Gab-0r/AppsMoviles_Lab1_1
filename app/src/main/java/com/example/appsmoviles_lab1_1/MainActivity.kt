@@ -5,6 +5,7 @@ import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import com.example.appsmoviles_lab1_1.databinding.ActivityMainBinding
 import java.text.SimpleDateFormat
 import java.util.*
@@ -43,6 +44,22 @@ class MainActivity : Activity() {
                     calendar.get(Calendar.DAY_OF_MONTH)
                 ).show()
             }
+
+            registerButton.setOnClickListener{
+                val nombre_ = TextInputEditTextNombre.text.toString()
+                val email_ = TextInputEditTextEmail.text.toString()
+                val genero_ = if(radioButtonMasculino.isChecked) getString(R.string.string_masculino)
+                else getString(R.string.string_femenino)
+
+                var hobbies_ = ""
+                if(checkBoxEjercicio.isChecked) hobbies_ += getString(R.string.string_ejercicio) + " "
+                if(checkBoxLeer.isChecked) hobbies_ += getString(R.string.string_leer) + " "
+                if(checkBoxEventos.isChecked) hobbies_ += getString(R.string.string_eventos) + " "
+                if(checkBoxSenderismo.isChecked) hobbies_ += getString(R.string.string_senderismo) + " "
+
+                val ciudadnac_ = spinnerLugarnac.selectedItem.toString()
+                textViewSavedInfo.text = getString(R.string.info, nombre_, email_, genero_, hobbies_, ciudadnac_, borndate)
+            }
         }
     }
-}
+};
