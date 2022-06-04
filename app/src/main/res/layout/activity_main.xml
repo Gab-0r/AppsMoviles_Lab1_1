@@ -12,6 +12,7 @@
         android:layout_height="729dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
+        android:layout_marginBottom="24dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +23,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -129,35 +130,50 @@
                     android:textSize="16sp" />
 
                 <LinearLayout
+                    android:id="@+id/LinearLayour_hobbies"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="4dp"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <CheckBox
-                        android:id="@+id/checkBox_ejercicio"
-                        android:layout_width="298dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/string_ejercicio" />
-
-                    <CheckBox
                         android:id="@+id/checkBox_leer"
-                        android:layout_width="298dp"
+                        android:layout_width="146dp"
                         android:layout_height="wrap_content"
                         android:text="@string/string_leer" />
 
                     <CheckBox
+                        android:id="@+id/checkBox_ejercicio"
+                        android:layout_width="96dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/string_ejercicio" />
+
+                    <CheckBox
                         android:id="@+id/checkBox_senderismo"
-                        android:layout_width="298dp"
+                        android:layout_width="137dp"
                         android:layout_height="wrap_content"
                         android:text="@string/string_senderismo" />
 
                     <CheckBox
                         android:id="@+id/checkBox_eventos"
-                        android:layout_width="297dp"
+                        android:layout_width="182dp"
                         android:layout_height="wrap_content"
                         android:text="@string/string_eventos" />
+
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView_fnacimiento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/string_fnacimiento"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/borndDateButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bdate" />
 
             </LinearLayout>
         </ScrollView>

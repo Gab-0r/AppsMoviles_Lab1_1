@@ -14,4 +14,5 @@
     <string name="string_senderismo">Senderismo</string>
     <string name="string_eventos">Eventos culturales</string>
     <string name="string_fnacimiento">Fecha de nacimiento</string>
+    <string name="bdate">dd/mm/yy</string>
 </resources>
