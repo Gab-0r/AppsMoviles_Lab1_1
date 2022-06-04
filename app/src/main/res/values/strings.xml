@@ -17,5 +17,6 @@
     <string name="bdate">dd/mm/yy</string>
     <string name="string_lugarnac">Lugar de nacimiento</string>
     <string name="string_registrar">Registrarse</string>
-    <string name="info">Nombre: %s\nEmail: %s\nGenero: %s\nHobbies: %s\nCiudad de nacimiento: %s\nFecha de nacimiento: %s\n</string>
+    <string name="info">Nombre: %s\nApellidos: %s\nEmail: %s\nContraseña: %s\nConfirmar contraseña: %s\nGénero: %s\nHobbies: %s\nCiudad de nacimiento: %s\nFecha de nacimiento: %s\n</string>
+    <string name="string_apellido">Apellidos</string>
 </resources>

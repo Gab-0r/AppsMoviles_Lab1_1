@@ -47,7 +47,10 @@ class MainActivity : Activity() {
 
             registerButton.setOnClickListener{
                 val nombre_ = TextInputEditTextNombre.text.toString()
+                val apellido_ = TextInputEditTextApellido.text.toString()
                 val email_ = TextInputEditTextEmail.text.toString()
+                val pass_ = TextInputEditTextPass.text.toString()
+                val confpass_ = TextInputEditTextConfirmpass.text.toString()
                 val genero_ = if(radioButtonMasculino.isChecked) getString(R.string.string_masculino)
                 else getString(R.string.string_femenino)
 
@@ -58,7 +61,7 @@ class MainActivity : Activity() {
                 if(checkBoxSenderismo.isChecked) hobbies_ += getString(R.string.string_senderismo) + " "
 
                 val ciudadnac_ = spinnerLugarnac.selectedItem.toString()
-                textViewSavedInfo.text = getString(R.string.info, nombre_, email_, genero_, hobbies_, ciudadnac_, borndate)
+                textViewSavedInfo.text = getString(R.string.info, nombre_, apellido_,email_, pass_, confpass_, genero_, hobbies_, ciudadnac_, borndate)
             }
         }
     }
