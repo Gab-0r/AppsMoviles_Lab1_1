@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import com.example.appsmoviles_lab1_1.databinding.ActivityMainBinding
 import java.text.SimpleDateFormat
 import java.util.*
@@ -46,6 +47,22 @@ class MainActivity : Activity() {
             }
 
             registerButton.setOnClickListener{
+
+                if(TextInputEditTextNombre.text.toString().isEmpty())
+                    Toast.makeText(this@MainActivity,"Digite su nombre", Toast.LENGTH_SHORT).show()
+
+                if(TextInputEditTextApellido.text.toString().isEmpty())
+                    Toast.makeText(this@MainActivity, "Digite su apellido", Toast.LENGTH_SHORT).show()
+
+                if(TextInputEditTextEmail.text.toString().isEmpty())
+                    Toast.makeText(this@MainActivity, "Digite su e-mail", Toast.LENGTH_SHORT).show()
+
+                if(TextInputEditTextPass.text.toString().isEmpty())
+                    Toast.makeText(this@MainActivity, "Digite su contraseña", Toast.LENGTH_SHORT).show()
+
+                if(TextInputEditTextConfirmpass.text.toString().isEmpty())
+                    Toast.makeText(this@MainActivity, "Confirme la contraseña", Toast.LENGTH_SHORT).show()
+
                 val nombre_ = TextInputEditTextNombre.text.toString()
                 val apellido_ = TextInputEditTextApellido.text.toString()
                 val email_ = TextInputEditTextEmail.text.toString()
@@ -53,6 +70,9 @@ class MainActivity : Activity() {
                 val confpass_ = TextInputEditTextConfirmpass.text.toString()
                 val genero_ = if(radioButtonMasculino.isChecked) getString(R.string.string_masculino)
                 else getString(R.string.string_femenino)
+
+                if(pass_ != confpass_)
+                    Toast.makeText(this@MainActivity, "Las contraseñas son diferentes", Toast.LENGTH_SHORT).show()
 
                 var hobbies_ = ""
                 if(checkBoxEjercicio.isChecked) hobbies_ += getString(R.string.string_ejercicio) + " "
