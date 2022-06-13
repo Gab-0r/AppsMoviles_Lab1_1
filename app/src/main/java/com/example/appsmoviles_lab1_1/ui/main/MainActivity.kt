@@ -1,12 +1,10 @@
-package com.example.appsmoviles_lab1_1
+package com.example.appsmoviles_lab1_1.ui.main
 
 import android.app.Activity
 import android.app.DatePickerDialog
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.TextView
 import android.widget.Toast
+import com.example.appsmoviles_lab1_1.R
 import com.example.appsmoviles_lab1_1.databinding.ActivityMainBinding
 import java.text.SimpleDateFormat
 import java.util.*
