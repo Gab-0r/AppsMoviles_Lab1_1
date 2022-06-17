@@ -4,15 +4,17 @@ import android.app.Activity
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.appsmoviles_lab1_1.R
 import com.example.appsmoviles_lab1_1.databinding.ActivityMainBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MainActivity : Activity() {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var mainBinding: ActivityMainBinding
-    private var borndate = ""
+    private lateinit var mainViewModel: MainViewModel
     private val calendar  = Calendar.getInstance()
     
 
@@ -21,7 +23,23 @@ class MainActivity : Activity() {
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         val view = mainBinding.root
         setContentView(view)
-        
+
+        mainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
+
+        mainViewModel.borndateDone.observe(this){
+            mainBinding.borndDateButton.text = it
+        }
+
+        mainViewModel.emptyFieldAtDone.observe(this){at ->
+            when(at){
+                1 -> Toast.makeText(this@MainActivity,"Digite su nombre", Toast.LENGTH_SHORT).show()
+                2 -> Toast.makeText(this@MainActivity, "Digite su apellido", Toast.LENGTH_SHORT).show()
+                3 -> Toast.makeText(this@MainActivity, "Digite su e-mail", Toast.LENGTH_SHORT).show()
+                4 -> Toast.makeText(this@MainActivity, "Digite su contraseña", Toast.LENGTH_SHORT).show()
+                5 -> Toast.makeText(this@MainActivity, "Confirme la contraseña", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
             calendar.set(Calendar.YEAR, year)
             calendar.set(Calendar.MONTH, month)
@@ -29,9 +47,12 @@ class MainActivity : Activity() {
 
             val format = "dd/MM/yyyy"
             val sdf = SimpleDateFormat(format)
-            borndate = sdf.format(calendar.time).toString()
-            mainBinding.borndDateButton.text = borndate
+            //borndate = sdf.format(calendar.time).toString()
+            //mainBinding.borndDateButton.text = borndate
+            mainViewModel.setBornDate(sdf.format(calendar.time).toString())
         }
+
+
 
         with(mainBinding){
             borndDateButton.setOnClickListener{
@@ -46,6 +67,7 @@ class MainActivity : Activity() {
 
             registerButton.setOnClickListener{
 
+                /*
                 if(TextInputEditTextNombre.text.toString().isEmpty())
                     Toast.makeText(this@MainActivity,"Digite su nombre", Toast.LENGTH_SHORT).show()
 
@@ -60,6 +82,15 @@ class MainActivity : Activity() {
 
                 if(TextInputEditTextConfirmpass.text.toString().isEmpty())
                     Toast.makeText(this@MainActivity, "Confirme la contraseña", Toast.LENGTH_SHORT).show()
+                 */
+
+                mainViewModel.areEmptyFields(
+                    TextInputEditTextNombre.text.toString().isEmpty(),
+                    TextInputEditTextApellido.text.toString().isEmpty(),
+                    TextInputEditTextEmail.text.toString().isEmpty(),
+                    TextInputEditTextPass.text.toString().isEmpty(),
+                    TextInputEditTextConfirmpass.text.toString().isEmpty()
+                )
 
                 val nombre_ = TextInputEditTextNombre.text.toString()
                 val apellido_ = TextInputEditTextApellido.text.toString()
@@ -79,7 +110,7 @@ class MainActivity : Activity() {
                 if(checkBoxSenderismo.isChecked) hobbies_ += getString(R.string.string_senderismo) + " "
 
                 val ciudadnac_ = spinnerLugarnac.selectedItem.toString()
-                textViewSavedInfo.text = getString(R.string.info, nombre_, apellido_,email_, pass_, confpass_, genero_, hobbies_, ciudadnac_, borndate)
+                //textViewSavedInfo.text = getString(R.string.info, nombre_, apellido_,email_, pass_, confpass_, genero_, hobbies_, ciudadnac_, borndate)
             }
         }
     }
