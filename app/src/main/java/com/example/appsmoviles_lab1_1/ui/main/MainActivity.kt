@@ -30,6 +30,15 @@ class MainActivity : AppCompatActivity() {
             mainBinding.borndDateButton.text = it
         }
 
+        mainViewModel.isPassOkDone.observe(this){
+            if (!it) Toast.makeText(this@MainActivity, "Las contraseñas son diferentes", Toast.LENGTH_SHORT).show()
+        }
+
+        mainViewModel.showStringDone.observe(this){
+            mainBinding.textViewSavedInfo.text = it
+        }
+
+
         mainViewModel.emptyFieldAtDone.observe(this){at ->
             when(at){
                 1 -> Toast.makeText(this@MainActivity,"Digite su nombre", Toast.LENGTH_SHORT).show()
@@ -51,8 +60,6 @@ class MainActivity : AppCompatActivity() {
             //mainBinding.borndDateButton.text = borndate
             mainViewModel.setBornDate(sdf.format(calendar.time).toString())
         }
-
-
 
         with(mainBinding){
             borndDateButton.setOnClickListener{
@@ -92,25 +99,41 @@ class MainActivity : AppCompatActivity() {
                     TextInputEditTextConfirmpass.text.toString().isEmpty()
                 )
 
+                /*
                 val nombre_ = TextInputEditTextNombre.text.toString()
                 val apellido_ = TextInputEditTextApellido.text.toString()
                 val email_ = TextInputEditTextEmail.text.toString()
                 val pass_ = TextInputEditTextPass.text.toString()
                 val confpass_ = TextInputEditTextConfirmpass.text.toString()
-                val genero_ = if(radioButtonMasculino.isChecked) getString(R.string.string_masculino)
-                else getString(R.string.string_femenino)
+                */
 
+                mainViewModel.storeFields(
+                    TextInputEditTextNombre.text.toString(),
+                    TextInputEditTextApellido.text.toString(),
+                    TextInputEditTextEmail.text.toString(),
+                    TextInputEditTextPass.text.toString(),
+                    TextInputEditTextConfirmpass.text.toString(),
+                    spinnerLugarnac.selectedItem.toString()
+                )
+
+
+                if(radioButtonMasculino.isChecked) mainViewModel.storeGenre(getString(R.string.string_masculino))
+                else mainViewModel.storeGenre(getString(R.string.string_femenino))
+
+                /*
                 if(pass_ != confpass_)
                     Toast.makeText(this@MainActivity, "Las contraseñas son diferentes", Toast.LENGTH_SHORT).show()
+                */
 
-                var hobbies_ = ""
-                if(checkBoxEjercicio.isChecked) hobbies_ += getString(R.string.string_ejercicio) + " "
-                if(checkBoxLeer.isChecked) hobbies_ += getString(R.string.string_leer) + " "
-                if(checkBoxEventos.isChecked) hobbies_ += getString(R.string.string_eventos) + " "
-                if(checkBoxSenderismo.isChecked) hobbies_ += getString(R.string.string_senderismo) + " "
+                mainViewModel.isPassCorrect()
 
-                val ciudadnac_ = spinnerLugarnac.selectedItem.toString()
+                if(checkBoxEjercicio.isChecked) mainViewModel.storeHobbies(getString(R.string.string_ejercicio))
+                if(checkBoxLeer.isChecked) mainViewModel.storeHobbies(getString(R.string.string_leer))
+                if(checkBoxEventos.isChecked) mainViewModel.storeHobbies(getString(R.string.string_eventos))
+                if(checkBoxSenderismo.isChecked) mainViewModel.storeHobbies(getString(R.string.string_senderismo))
+
                 //textViewSavedInfo.text = getString(R.string.info, nombre_, apellido_,email_, pass_, confpass_, genero_, hobbies_, ciudadnac_, borndate)
+                mainViewModel.showInfo()
             }
         }
     }
