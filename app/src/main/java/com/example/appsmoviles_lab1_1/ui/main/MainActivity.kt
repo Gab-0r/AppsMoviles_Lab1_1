@@ -56,8 +56,6 @@ class MainActivity : AppCompatActivity() {
 
             val format = "dd/MM/yyyy"
             val sdf = SimpleDateFormat(format)
-            //borndate = sdf.format(calendar.time).toString()
-            //mainBinding.borndDateButton.text = borndate
             mainViewModel.setBornDate(sdf.format(calendar.time).toString())
         }
 
@@ -74,23 +72,6 @@ class MainActivity : AppCompatActivity() {
 
             registerButton.setOnClickListener{
 
-                /*
-                if(TextInputEditTextNombre.text.toString().isEmpty())
-                    Toast.makeText(this@MainActivity,"Digite su nombre", Toast.LENGTH_SHORT).show()
-
-                if(TextInputEditTextApellido.text.toString().isEmpty())
-                    Toast.makeText(this@MainActivity, "Digite su apellido", Toast.LENGTH_SHORT).show()
-
-                if(TextInputEditTextEmail.text.toString().isEmpty())
-                    Toast.makeText(this@MainActivity, "Digite su e-mail", Toast.LENGTH_SHORT).show()
-
-                if(TextInputEditTextPass.text.toString().isEmpty())
-                    Toast.makeText(this@MainActivity, "Digite su contraseña", Toast.LENGTH_SHORT).show()
-
-                if(TextInputEditTextConfirmpass.text.toString().isEmpty())
-                    Toast.makeText(this@MainActivity, "Confirme la contraseña", Toast.LENGTH_SHORT).show()
-                 */
-
                 mainViewModel.areEmptyFields(
                     TextInputEditTextNombre.text.toString().isEmpty(),
                     TextInputEditTextApellido.text.toString().isEmpty(),
@@ -98,14 +79,6 @@ class MainActivity : AppCompatActivity() {
                     TextInputEditTextPass.text.toString().isEmpty(),
                     TextInputEditTextConfirmpass.text.toString().isEmpty()
                 )
-
-                /*
-                val nombre_ = TextInputEditTextNombre.text.toString()
-                val apellido_ = TextInputEditTextApellido.text.toString()
-                val email_ = TextInputEditTextEmail.text.toString()
-                val pass_ = TextInputEditTextPass.text.toString()
-                val confpass_ = TextInputEditTextConfirmpass.text.toString()
-                */
 
                 mainViewModel.storeFields(
                     TextInputEditTextNombre.text.toString(),
@@ -120,11 +93,6 @@ class MainActivity : AppCompatActivity() {
                 if(radioButtonMasculino.isChecked) mainViewModel.storeGenre(getString(R.string.string_masculino))
                 else mainViewModel.storeGenre(getString(R.string.string_femenino))
 
-                /*
-                if(pass_ != confpass_)
-                    Toast.makeText(this@MainActivity, "Las contraseñas son diferentes", Toast.LENGTH_SHORT).show()
-                */
-
                 mainViewModel.isPassCorrect()
 
                 if(checkBoxEjercicio.isChecked) mainViewModel.storeHobbies(getString(R.string.string_ejercicio))
@@ -132,7 +100,6 @@ class MainActivity : AppCompatActivity() {
                 if(checkBoxEventos.isChecked) mainViewModel.storeHobbies(getString(R.string.string_eventos))
                 if(checkBoxSenderismo.isChecked) mainViewModel.storeHobbies(getString(R.string.string_senderismo))
 
-                //textViewSavedInfo.text = getString(R.string.info, nombre_, apellido_,email_, pass_, confpass_, genero_, hobbies_, ciudadnac_, borndate)
                 mainViewModel.showInfo()
             }
         }
